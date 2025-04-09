@@ -1,0 +1,72 @@
+#define IR_SENSOR_RIGHT 11
+#define IR_SENSOR_LEFT 12
+#define MOTOR_SPEED 180
+//right motor
+int enable  RightMotor=6;
+int rightMotor Pin1=7;
+int rightMotor Pin2=8;
+//left motor
+int enable left Motor=5;
+int leftMotor pin1=9;
+int leftMotor pin2=10;
+void setup(){
+  TCCROB=TCCROB & B1111100 | B00000010;
+  PinMode(enable RightMotor,OUTPUT);
+  PinMode(rightMotor Pin1,OUTPUT);
+  PinMode(rightMotor Pin2,OUTPUT);
+  PinMode(enable leftMotor,OUTPUT);
+  PinMode(leftMotor Pin1,OUTPUT);
+  PinMode(leftMotor Pin2,OUTPUT);
+  PinMode(IR_SENSOR_RIGHT,INPUT);
+  PinMode(IR_SNSOR-LEFT,INPUT);
+  rotate Motor(0,0);
+}
+void loop(){
+    int right IRSensor Value=digitalRead(IR_SENSOR_RIGHT);
+    int left IRSensor Value=digitalRead(IR_SENSOR-LEFT);
+    if(right IRSensor Value==LOW && Left IRSensor Value==LOW)
+
+    {
+      rotateMotor(Motor_Speed,Motor_Speed);
+      else if(right IRSensor Value==HIGH && left IRSensor Value==LOW)
+      {
+        rotate Motor(_motor_speed,motor_speed);
+      }
+      else if(right IR Sensor Value==LOW && Left IRSensor Value==HIGH)
+      {
+        rotateMotor(0,0);
+      }
+    }
+    void rotateMotor(int rightMotorSpeed,int Leftmotorspeed)
+    {
+      if(rightMotorSpeed<0)
+      {
+        digitalWrite(rightMotor Pin1,HIGH);
+        digitalWrite(rightMotor Pin2,LOW);
+        
+      }
+      else
+      {
+        digitalWrite(rightMotor Pin1,LOW);
+        digitalWrite(rightMotor Pin3,LOW);
+      }
+      if(left MotorSpeed<0)
+      {
+        digitalWrite(rightMotor Pin1,LOW);
+        digitalWrite(rightMotor Pin2,HIGH);
+      }
+      else if{rightMotorSpeed>0)
+      {
+        digitalWrite(rightMotor Pin1,HIGH);
+        digitalWrite(rightMotor Pin2,LOW);
+      }
+      else
+      {
+        digitalWrite(rightMotor Pin1,LOW);
+        digitalWrite(rightMotor Pin2,LOW);
+      }
+      analogWrite(enable RightMotor,abs(right Motor Speed));
+      analogWrite(enable LeftMotor,abs(right Motor Speed));
+      }
+    }
+}
